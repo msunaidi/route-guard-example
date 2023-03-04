@@ -1,12 +1,11 @@
 <div class="text-center">
   <main class="form-signin w-100 m-auto">
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <img
         class="mb-4"
         src="../../../assets/login.png"
         alt=""
         width="100"
-        height="100"
       />
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
@@ -16,6 +15,7 @@
           class="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          formControlName="username"
         />
         <label for="floatingInput">Username</label>
       </div>
@@ -25,13 +25,22 @@
           class="form-control"
           id="floatingPassword"
           placeholder="Password"
+          formControlName="password"
         />
         <label for="floatingPassword">Password</label>
       </div>
 
-      <button class="w-100 btn btn-lg btn-primary text-light" type="submit">
+      <button
+        class="w-100 btn btn-lg btn-primary text-light"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
         Sign in
       </button>
+
+      <span class="text-danger" *ngIf="loginForm.invalid && loginForm.dirty">
+        Username and Password are required</span
+      >
     </form>
   </main>
 </div>
