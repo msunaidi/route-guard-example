@@ -7,10 +7,15 @@ import { AuthModule } from './auth/auth.module';
 import { FeaturesModule } from './features/features.module';
 import { HomeModule } from './home/home.module';
 
-
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HomeModule, AuthModule, FeaturesModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AuthModule,
+    FeaturesModule,
+    HomeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
